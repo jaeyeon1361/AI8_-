@@ -1,0 +1,192 @@
+키워드 : 깃 허브 버젼관리 / 백업 / 협업
+_ 창의하는 것 같지만 모방.. 더 쉽게 할 수 있게..
+
+Unix 를 통해서 linux가 발전이 되었고,
+리눅스를 통해서 윈도우가 생기고 맥이 생기고 그랬음
+
+
+drwxr-xr-x
+drwxr-xr-x 에서의 x 는 실행가능함
+-rw-r--r-- 읽고 쓸 수 있음
+-> 폴더 내 권한 설정 스크린 샷 확인
+
+mkdir git-dir
+-> 폴더생성
+
+git bash 실행
+## git 환경 설정 하는 법 
+git config --global user.name "Jaeyeon"
+git config --global user.email "pawer1361@gmail.com"
+git으로 작성하는 모든 문서에 아래의 내용이 추가됨
+cat .gitconfig
+하면 아까 설정을 했던 것들이 표시가 됌 / 아니면 해당 폴더에서 메모장으로 열면 위에 작성한 것들이 보임
+
+## 화살표를 하면 vi 편집기랑 동일하게 쓸 수 있음
+cat > test1
+1234
+test 중입니다.
+
+## 버전 관리를 할 수 있는 디렉토리 생성 
+admin@DESKTOP-5VB2PR7 MINGW64 ~/git-dir
+$ git init
+Initialized empty Git repository in C:/Users/admin/git-dir/.git/
+admin@DESKTOP-5VB2PR7 MINGW64 ~/git-dir (main)
+
+- 작업트리
+눈으로 보는 것이 작업트리 (file 생성)
+$ git status
+$ git add hello.txt
+$ git commit -am 'messeage2'
+-> 스테이지로 옮김
+-스테이지(임시저장) commit
+파일 생성한 것을 스테이지로 옮김 _ 대기파일
+$ git commit -m 'message1'
+-> 스테이지로 옮겨진 모든파일을 옮김
+-저장소 
+
+git init -> .git 디렉토리가 생성 
+git add 파일명 : 스테이지에 파일 올림
+git commit m '메세지' : 스테이지에 있는 파일을 레퍼지토리에 옮김
+git log : git commit 확인 가능
+
+$ git diff
+hint: core.useBuiltinFSMonitor=true is deprecated;please set core.fsmonitor=true instead
+hint: Disable this message with "git config advice.useCoreFSMonitorConfig false"
+warning: LF will be replaced by CRLF in hello.txt.
+The file will have its original line endings in your working directory
+diff --git a/hello.txt b/hello.txt
+index e18995a..a3dcabb 100644
+--- a/hello.txt
++++ b/hello.txt
+@@ -1,2 +1,4 @@
+ hello
+ add text
++1
++
+-> 수정 된 내용이 뭔지 나옴 / hello.txt 에서 이전과 다른 점을 보여줌
+-> 해당 내용은 add text에서 +1이 추가된 것을 보여줌
+
+ git log --stat
+-> 해당 log에서 수정된 사항들을 보여줌
+
+-- 마지막 commit 메세지 수정
+git commit --amend 
+-> 편집창이 나오고 메세지를 편집하면됨
+
+stage에 올라 가지 않은 수정된 파일을 원래대로 되돌림
+git restore hello.txt
+git checkout -- hello.txt
+oracle buffer (stage) 쪽에서 작업하다가도 commit 이라는 명령어를 사용
+
+git reset HEAD^ 
+- 가장 마지막에 했던 것을 수정
+
+git reset --hard 해시키(키값?) 특정위치의 파일로 복구
+
+git init - 초기화
+git add - 파일 추가
+git commit -m '메세지' - 해당 파일에 내용 추가
+gir status
+git restore 파일명
+git restore --stage 파일명
+git reset HEAD^
+git reset --hard 해시키
+
+-------------------------------------브랜치란 ?---------------------------
+제품 사용 설명서 
+
+분기(branch) : master 브랜치에서 여러 갈래 브랜치를 만듦 
+병합(merge) : 여러 갈래 브린치에서 합침
+
+HEAD - main 
+
+git branch 저장소의 브랜치 확인
+
+git checkout apple 
+
+<1단계>
+git init 디렉토리명 (메인디렉토리 생성)
+-> 디렉토리를 생성하면서 초기화 (mkdir 디렉토리명)
+cd menual
+vi work.txt
+-> contents 1
+git add work.txt
+git commit -m 'work 1'
+<2단계>
+vi work.txt
+-> contents 2 추가
+git commit -am 'work 2'
+<3단계>
+vi work.txt
+-> contents 3 추가
+git commit -am 'work 3'
+
+git branch apple
+git log
+-> 현재 HEAD가 가리키고 있는 브렌치 명이 보임
+
+HEAD 는 최신 버전을 알려줌 (최신 업데이트 된 수정본이 무엇이냐)
+
+
+$ git log --oneline
+f29f7ca (HEAD -> main) main work 4
+0b7f23f (ms, google, apple) work 3
+920f0fe work 2
+045346e work 1
+
+admin@DESKTOP-5VB2PR7 MINGW64 ~/manual (main)
+$ git checkout apple
+-> 버전을 apple로 변경
+
+$ git log --oneline --branches
+d749609 (HEAD -> apple) apple contents 4
+f29f7ca (main) main work 4
+0b7f23f (ms, google) work 3
+920f0fe work 2
+045346e work 1
+
+yy  복사 윗주
+p 붙여넣기
+> 처음부터 다시
+>> 마지막에서 붙여넣기
+
+
+
+git branch 
+   84  git init manual
+-> 초기화
+   85  cd manual/
+-> 폴더생성
+   86  vi work.txt
+->파일 수정
+   87  git add work.txt
+-> stage 작업할 파일 생성
+   88  git commit -m 'work 1'
+-> 작업하고 있는 파일에 메세지 추가 /git commit m '메세지' : 스테이지에 있는 파일을 레퍼지토리에 옮김
+   89  git log
+-> HEAD 가 main 으로 되있는지 확인
+   90  vi work.txt
+-> 86번이랑 동일하게 진행
+   95  git commit -am 'work 2'
+   98  vi work.txt
+   99  git commit -am 'work 3'
+  101  git branch apple
+-> 같이 작업 할 사람들의 branch 생성
+  102  git branch ms5
+-> 같이 작업 할 사람들의 branch 생성
+  103  git branch google
+-> 같이 작업 할 사람들의 branch 생성
+  105  git log
+  106  git checkout apple
+-> apple branch 접속
+  110  vi work.txt -> apple content 4 추가 후 저장
+-> apple branch 가 작업할 파일 수정 진행
+  112  git commit -am 'apple content 4' -> 저장
+  113  git log --oneline --branches
+  114  history
+
+git log main..apple
+-> 현재 branch랑 다른지
+
+# branch 관련 url
+https://backlog.com/git-tutorial/kr/stepup/stepup1_4.html
