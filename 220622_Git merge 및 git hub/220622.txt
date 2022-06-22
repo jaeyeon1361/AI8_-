@@ -1,0 +1,118 @@
+git init manual2
+cd manual2
+vi work.txt 
+-> 1내용 추가
+git add work.txt
+git commit -m 'work 1'
+git status
+
+git branch o2
+
+vi master.txt
+git add master.txt
+git commit -m 'master work 2'
+
+git checkout o2
+vi o2.txt -> o2 2 입력	
+
+git checkout main
+git merge o2 
+-> o2 랑 병합
+	
+병합할려는 것이 동일한 파일이름이면 merge 하고 나면 나오는 텍스트 문서에서
+어떤걸 남길지가 나옴
+그러고 commit 해서 수정본을 저장하면됌
+
+# branch 삭제
+git branch -d 브랜치명
+
+
+237  git branch test
+  238  git branch test2
+  239  git checkout test
+  240  cat > test.txt
+  241  ls
+  242  git remote -v
+  243  git remote add origin https://github.com/jaeyeon1361/TEST123.git
+  244  git remote -v
+  245  git push -u
+  246  git push -u origin test
+-> 내가 설정한 github 주소한테 파일을 보냄
+  249  git checkout test2
+  251  cat > three.txt
+  253  ls
+  254  git push -u origin test2
+  255  git add three.txt
+  256  git commit -m 'test3'
+  257  git push -u origin test2
+  258  history
+
+git init 폴더명
+cd 폴더명
+git add 파일명
+git commit -m 'work 1'
+git status
+git remote add origin github주소
+git push origin master
+git branch <브랜치명>
+git checkout <브랜치명>
+
+git remote -v 
+-> 연결이 잘 됐는지 여부
+
+## git hub
+1. 서버 생성
+2. 팀장이 git push해서 만들어놓고
+3. 팀원들이 git pull 땡겨서 서버에 있는 것을 공유 받고
+git clone 서버별 디렉토리명 
+4. psuh로 해서 팀원들이 수정본을 올려줌
+5. 그걸 종합하고 다시 pull로 받고 수정..
+
+
+## github SSH 설정
+cd ~
+홈디텍토리 에서
+ssh-keygen
+cd .ssh/
+$ ls -al
+id_rsa -> 개인 키  
+id_rsa.pub ->
+github 메인에서 setting -> SSH and GPG keys 접속 SSH keys 에다가 
+cat id_rsa.pub 에서 나온거 복사 붙여넣기
+새로운 git 생성 후 접속 방법 ssh로 설정
+git remote add origin-ssh git@github.com:jaeyeon1361/gitgit.git
+git remote -v
+git push origin-ssh main
+yes
+github code 선택 -> 파일반영 확인
+
+
+## github clone (github 전체복사)
+cd ~ 
+git clone git@github.com:jaeyeon1361/TEST123.git git_office
+-> git clone ssh의 github 주소 앞으로 작업 진행할 폴더 명
+
+
+
+서버에 repository(폴더) 생성 ->manual
+local의 manual의 자료를 서버에 push
+서버의 자료를 한꺼번에 복제 : clone 로컬의 디렉토리는 manual_home
+서버의 자료를 한꺼번에 복제 : clone 로컬의 디렉토리는 manual_office
+
+## github 삭제
+해당 github 접속 후 setting 접속 -> 맨밑에 내려가서 delete
+누르면 지울꺼냐고 물어보는데 중간에 jaeyeon1361/TEST-README 이런식으로 있는데
+복사 붙여넣기 하면 delete 활성화됌
+
+## git hub 파일 받아오기
+git clone <추가> <프로젝트 파일명 ex)jaeyeon_project>
+cd jaeyeon_project
+여기서 있는 파일들 수정진행
+vi jaeyeon_test.txt
+cat jaeyeon_test.txt
+git add jaeyeon_test.txt
+git commit -m 'jaeyeon_test'
+git push -> 팀장님 프로젝트 수정한거 git hub에 올렸어요
+팀장님曰 수정한거 반영했어요
+git pull
+

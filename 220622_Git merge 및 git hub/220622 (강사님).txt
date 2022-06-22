@@ -1,0 +1,98 @@
+$ git init manual2
+$ cd manual2
+$ vi work.txt <- 1을 추가
+
+--> git stage에 파일 추가
+$ git add work.txt
+$ git commit -m 'work 1'
+
+-- 브랜치 o2 생성
+$ git branch o2
+
+-- main 브랜치에 master.txt  파일 생성 <- master 2 내용 추가
+$ vi master.txt
+$ git add master.txt
+$ git commit -m 'master work 2'
+
+-- 브랜치 o2 로 이동
+$ git checkout o2
+$ vi o2.txt <- o2 2
+
+-- main브랜티로 이동 후 병합
+$ git checkout main
+$ git merge o2
+
+--  같은 문서 병합
+1. 다른 라인 수정시
+2. 같은 라인 수정시
+
+-- o2 work.txt -> 마지막 라인에 o2 content 2를 추가
+-- main  work.txt
+# title
+content
+main content 2
+
+# title
+content 2
+
+-- o2 work.txt
+# title
+content
+ 
+
+# title
+content 2
+o2 content 2
+
+-- 원격 접속하기
+- 원격 서버 등록하기
+$ git remote add 서버명 url주소
+$ git remote -v : 접속 여부 확인
+
+- 서버에 자료 올리기
+$ git push 서버명(origin) 브렌치명
+
+- 서버에서 자료 다운 받기
+$ git pull 서버명 브렌치명
+
+--ssh로 접속하기
+$ ssh-keygen 실행 => 홈디렉토리에서
+
+$ cd .ssh/
+$ cat id_rsa.pub 실행후 내용 복사
+
+-- 서버의 settings -> ssh and git 키 등록에서 공개키 추가
+- url -> code ssh 주소 복사
+$ git remote add 서버명 url주소
+$ git remote -v : 접속 여부 확인
+
+- 서버에 자료 올리기
+$ git push 서버명 브렌치명
+
+- 서버에서 자료 다운 받기
+$ git pull 서버명 브렌치명
+
+
+-- 1. 서버에 repository 생성 -> manual
+-- 2. local의 manual 의 자료를 서버에 push
+-- 3. 서버의 자료를 한꺼번에 복제 : clone 로컬의 디렉토리는 manual_home
+-- 4. 서버의 자료를 한꺼번에 복제 : clone 로컬의 디렉토리는 manual_office
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
