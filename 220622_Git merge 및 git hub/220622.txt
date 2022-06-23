@@ -116,6 +116,11 @@ cd ~
 git clone git@github.com:jaeyeon1361/TEST123.git git_office
 -> git clone ssh의 github 주소 앞으로 작업 진행할 폴더 명
 
+## git hub folder 삭제
+git rm -rf <삭제폴더>
+git commit -m 'delete'
+git push
+깃허브에서 폴더 삭제된 것 확인
 
 
 서버에 repository(폴더) 생성 ->manual
