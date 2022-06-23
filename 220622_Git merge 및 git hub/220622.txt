@@ -52,7 +52,7 @@ cd 폴더명
 git add 파일명
 git commit -m 'work 1'
 git status
-git remote add origin github주소
+git remote add <서버이름> github주소
 git push origin master
 git branch <브랜치명>
 git checkout <브랜치명>
@@ -61,13 +61,37 @@ git remote -v
 -> 연결이 잘 됐는지 여부
 
 ## git hub
-1. 서버 생성
-2. 팀장이 git push해서 만들어놓고
-3. 팀원들이 git pull 땡겨서 서버에 있는 것을 공유 받고
-git clone 서버별 디렉토리명 
-4. psuh로 해서 팀원들이 수정본을 올려줌
-5. 그걸 종합하고 다시 pull로 받고 수정..
+1. 진행할 프로젝트명 : test <폴더설정>
+git init test
+cd test
+vi test.txt
+=> cat > test.txt
+안녕하세요. 공유를 위한 텍스트입니다.
+git branch (브랜치1)
+git branch (브랜치2)
+git branch (브랜치3)
+git add test.txt
+git commit -m 'jaeyeon_test_2206231015'
+-git hub에 반영되는 것이 commit 명이라서 날짜나 시간으로 통일하면 좋을 것 같아요
+git remote add <서버이름> github SSH URL 
+git remote -v
+- 서버 등록 잘 됐는지 확인
+git push <서버이름>
+github에 정상 반영됐는지 확인 후 팀원들에게 전파
 
+2. github 공유
+cd ~
+git clone github SSH URL <폴더명>
+git checkout <브랜치명>
+- 자신이 작업할? 브랜치로 이해하면 될 듯
+작업 완료 후 git push로 업데이트
+
+3. 그걸 종합하고 다시 pull로 받고 수정 반복
+
+유용한 명령어?
+git show -> 전 파일이랑 뭐가 달라졌는지 확인 가능 
+history -> 본인이 지금까지 한 명령어 다 볼 수 있음
+참고로 history | grep <찾을내용> 하면 어떤 명령어 썼었는지 볼 수 있습니다.
 
 ## github SSH 설정
 cd ~
