@@ -1,0 +1,50 @@
+set FLASK_APP=flask_basic.py
+flask run
+
+
+# 모듈생성
+따로 폴더를 만들어놓고 모듈을 생성을 함
+module_basic
+해당 폴더에서 모듈 파일을 작성 후 .py 파일로 저장
+------------------------------------------------------------------------------------------                           
+# 모듈생성(module_basic/test_module.py )
+------------------------------------------------------------------------------------------                           
+PI = 3.14
+
+def number_input():
+    output = input('숫자 입력 : ')
+    return float(output)
+
+def get_circum(radius):
+    return radius * 2 * PI
+
+def get_circle_area(radius):
+    return PI * radius * radius
+------------------------------------------------------------------------------------------
+# 모듈실행
+------------------------------------------------------------------------------------------
+main 주피터노트북 생성해놓고 
+import test_module as test  
+-> 만들어 놓은 모듈을 test라는 이름으로 사용을 하겠다.
+-> 만들어 놓은 모듈에 input이 있으니 바로 숫자 입력하게되면 아래 명령어들 수행
+
+radius = test.number_input()
+print(test.get_circum)
+-> 아래 명령어 수행 함수
+def get_circum(radius):
+    return radius * 2 * PI
+
+print(test.get_circle_area(radius)) 
+-> 아래명령어 수행함수
+def get_circle_area(radius):
+    return PI * radius * radius
+
+
+------------------------------------------------------------------------------------------                           
+# 해당 명령어는 메인일때만 수행을 한다는 내용 / import 진행한 곳 에서는 수행을 하지 않음
+해당 프로그램만 테스트 
+------------------------------------------------------------------------------------------                           
+print("모듈의 __name__ : ", __name__)
+if __name__ == '__main__' :                         
+    print("get_circum(5) : ", get_circum(5))
+    print("get_circle_area(5)) : ", get_circle_area(5))

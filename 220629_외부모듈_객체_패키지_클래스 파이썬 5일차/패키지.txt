@@ -1,0 +1,26 @@
+영우디지털글로벌/6월/220629_외부모듈/test_package 폴더생성
+test_package/package_1 폴더생성
+test_package/package_1 디렉토리에 모듈 작성
+	a_module.py # variable_a = ' a 모듈의 변수' 작성
+	b_module.py # variable_b = ' b 모듈의 변수' 작성
+
+test_pakage/ 경로에 main.ipynb 프로그램 작성
+
+main.ipynb 에 해당 문구 작성 하면 아래 모듈의 변수 출력됨 
+import a_module.a_1 as a 
+import a_module.b_1 as b
+print(a.variable_a)
+print(b.variable_b)
+a 모듈의 변수
+b 모듈의 변수
+
+# 
+test_pakage/package_1/__init__.ipynb 패키지 프로그램 작성 후 py 생성
+from packge_1 import *
+# 모듈의 변수 출력
+print(a_1.variable_a)
+print(b_1.variable_b)
+
+모든 모듈 정의
+a 모듈의 변수
+b 모듈의 변수
