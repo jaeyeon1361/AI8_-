@@ -1,0 +1,45 @@
+# 0행과 5행의 3열부터 ~ 데이터 가져오기
+df_ns = df.iloc[ [0, 5] , 3: ].copy()
+
+# 선 그래프 그리기
+df_ns.plot()
+
+# colums명 변경 : south 와 north로 변경
+df_ns_t.columns = ['south', 'north']
+df_ns_t.plot()
+
+# 막대그래프 : df.plot(kind='bar')
+df_ns_t.plot(kind='bar')# 막대그래프 : df.plot(kind='bar')
+df_ns_t.plot(kind='bar')
+
+
+# 산점도 (두개의 x축 y축을 가짐)
+
+df = pd.read_csv('./dataset/auto-mpg.csv', header=None)
+
+df.columns = ['mpg','cylinders','displacement','horsepower','weight',
+              'acceleration','model year','origin','name']
+
+df.plot(x= 'weight', y='mpg', kind='scatter')
+
+
+# 히스토 그램
+df_ns
+df_ns.index = ['south', 'north']
+df_ns.columns = df_ns.columns.map(int)          # 컬럼명을 int로 바꿈
+df_ns.info()
+
+df_ns =df_ns.astype(int)        # 데이터타입이 object이므로 int 형으로 변경
+
+df_ns_t = df_ns.T
+df_ns_t.plot(kind='hist')
+
+# 박스형
+
+df = pd.read_csv('./dataset/auto-mpg.csv', header=None)
+
+df.columns = ['mpg','cylinders','displacement','horsepower','weight',
+              'acceleration','model year','origin','name']
+
+df['mpg'].plot(kind='box')
+df[['mpg','cylinders']].plot(kind='box') # 여러개
