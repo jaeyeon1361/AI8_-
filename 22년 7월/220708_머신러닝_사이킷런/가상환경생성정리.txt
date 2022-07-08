@@ -1,0 +1,31 @@
+# Anaconda 가상환경 생성
+conda create --name JAEYEON python=3.10
+conda env list					->가상환경 만들어졌는지 확인
+conda activate JAEYEON				->가상환경 활성화
+conda install ipykernel
+python -m ipykernel install --user --name pydata	-> JAEYEON 가상환경을 jupyter lab 커널등록
+* jupyter kernelspec uninstall JAEYEON (제거시)
+
+
+# Anaconda 에서 Python venv 가상환경
+C:\Users\admin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.10\
+python -m venv JAEYEON
+JAEYEON\Scripts\activate
+activate.bat					-> 가상환경 활성화
+deactivate.bat					-> 가상환경 비활성화
+
+
+
+
+
+jupyter lab 
+
+jupyter notebook --generate-config
+
+
+C:\Users\admin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.10\
+
+
+
+python -m pip install --upgrade pip
+JAEYEON\Lib\site-packages
