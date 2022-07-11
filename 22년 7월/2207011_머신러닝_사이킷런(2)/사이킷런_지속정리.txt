@@ -1,0 +1,34 @@
+# 사이킷런 관련 모듈들 소개
+https://www.utc.fr/~jlaforet/Suppl/python-cheatsheets.pdf
+
+matplotilb
+scatter() _ 산점도
+
+<사이킷런 클래스>
+from sklearn.neighbors import KNeighborsClassifier
+KNeighborsClassifier() 
+가까운 개체들(이웃) 중에서 거리에 따라서 구분함
+ex) 도미, 방어 비교햇을때 개체가 많은 것쪽으로 나올 확률이 높아짐
+
+from sklearn.model_selection import train_test_split
+ train_test_split()
+나누고싶은 리스트나 배열을 원하는 만큼 전달하면 됌
+
+
+
+kn.fit() _ 정답데이터를 도출(확률)
+kn.predict() _ 사이킷런 모델을 훈련하고 예측할때 사용하는 메서드 _ 특성데이터 하나만 매개변수로 넣고 정답을 알려주세요
+kn.score() _ predict 이후 정답 확률을 반환함
+샘플링편향 _ 샘플이 골고루 섞여 있지 않고, 한쪽으로 치우쳐져 있음
+_ 위를 해결하기 위해서 numpy 함수 필요
+
+
+numpy 라이브러리 _ 배열과 관련된 함수 / 고차원의 수를 배열로 보여줌
+import numpy as np
+input_arr = np.array(fish_data) 
+배열 한다음에 해당데이터의 크기를 확인
+np.array.shape 
+index = np.arange() = 0에서 부터 48까지 1씩 증가하는 인덱스를 생성
+np.random.shuffle(index) = 주어진 인덱스를 무작위로 설정
+np.column_stack = 전달받은 리스트를 일렬로 세운 다움 차례대로 나란히 연결하고, 그 값은 파이썬 튜플로 전달
+np.concatenate((np.ones(35), np.zeros(14))) = 첫번째 차원따라 배열을 연결함 _ 사진참고하면 좋을 듯
